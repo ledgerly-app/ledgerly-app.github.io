@@ -25,6 +25,7 @@ const config: Config = {
   organizationName: 'ledgerly-app', // Usually your GitHub org/user name.
   projectName: 'ledgerly-app.github.io', // Usually your repo name.
   trailingSlash: false,
+  deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
 
