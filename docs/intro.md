@@ -1,47 +1,164 @@
 ---
 sidebar_position: 1
+title: Introduction
 ---
 
-# Tutorial Intro
+# Ledgerly
 
-Let's discover **Docusaurus in less than 5 minutes**.
+**Ledgerly** is a structured audit logging engine for Laravel applications designed to record, correlate, and export business events in a consistent and reliable way.
 
-## Getting Started
+It helps developers answer questions like:
 
-Get started by **creating a new site**.
+- Who changed this?
+- What exactly changed?
+- When did it happen?
+- What triggered it?
+- Which request or process was responsible?
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Ledgerly focuses on **business-level observability**, not infrastructure metrics.
 
-### What you'll need
+---
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+# Why Ledgerly Exists
 
-## Generate a new site
+Many applications need reliable audit trails, activity timelines, and compliance logging. While logging libraries and activity log packages exist, they often lack:
 
-Generate a new Docusaurus site using the **classic template**.
+- Structured metadata
+- Correlation across actions
+- Transaction grouping
+- Context awareness
+- Export-friendly data formats
+- Extensibility without modifying the core
 
-The classic template will automatically be added to your project after you run the command:
+Ledgerly is designed to solve these problems in a predictable and scalable way.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+---
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+# Core Principles
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+Ledgerly is built around a few key principles:
 
-## Start your site
+### 1. Immutable Logs
+Once recorded, entries cannot be modified or deleted.  
+Audit logs should be trustworthy and tamper-resistant.
 
-Run the development server:
+### 2. Structured Data
+Entries are stored as structured data rather than plain text logs, making them easy to query, filter, and export.
 
-```bash
-cd my-website
-npm run start
-```
+### 3. Deterministic Behavior
+Metadata, context, and transactions follow clear precedence rules to ensure predictable results.
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+### 4. Extensibility
+Applications can add metadata resolvers, context providers, and integrations without modifying the core package.
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+### 5. Separation of Concerns
+Ledgerly separates:
+- Logging
+- Metadata resolution
+- Context handling
+- Persistence
+- Exporting
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+This keeps the system maintainable as it grows.
+
+---
+
+# What Ledgerly Provides
+
+Ledgerly Core provides:
+
+- Immutable audit entries
+- Structured action names
+- Actor and target tracking
+- Diff tracking
+- Metadata collection
+- Correlation and transactions
+- Context support
+- Metadata resolvers
+- Export to an array and JSON
+- Query scopes
+- Install command
+
+Additional packages extend functionality:
+
+- **ledgerly/ui** – Timeline and visualization
+- **ledgerly/cloud** – Aggregation, monitoring, and analysis (planned)
+
+---
+
+# How Ledgerly Works
+
+At a high level, logging an entry looks like this:
+
+```php
+ledgerly()
+    ->actor($user)
+    ->action('billing.invoice.updated')
+    ->target($invoice)
+    ->withDiff([
+        'amount' => [1200, 1450],
+    ])
+    ->log();
+````
+
+Behind the scenes, Ledgerly:
+
+1. Validates the action and payload
+2. Collects metadata using resolvers
+3. Merges context and transaction data
+4. Stores an immutable entry
+5. Makes the entry available for querying and exporting
+
+---
+
+# Concepts You'll Learn
+
+As you explore the documentation, you’ll learn about:
+
+* Actions
+* Entries
+* Context
+* Metadata
+* Transactions
+* Correlation
+* Metadata resolvers
+* Exporting entries
+
+Each concept builds on the previous one, so reading in order is recommended.
+
+---
+
+# Who Should Use Ledgerly
+
+Ledgerly is useful for:
+
+* SaaS platforms
+* Financial systems
+* Admin panels
+* Multi-tenant applications
+* Compliance-sensitive applications
+* Activity timelines
+* Operational auditing
+
+If your application needs to **explain what happened and why**, Ledgerly is designed for that.
+
+---
+
+# What Ledgerly Is Not
+
+Ledgerly is not:
+
+* A replacement for application logs
+* A metrics or monitoring system
+* A tracing or APM tool
+* A real-time event streaming platform
+
+It complements these tools by providing **structured business event history**.
+
+---
+
+# Next Steps
+
+To get started, continue with:
+
+➡️ **[Getting Started](getting-started.md)**
