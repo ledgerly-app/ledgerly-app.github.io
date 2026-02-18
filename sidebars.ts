@@ -44,6 +44,11 @@ const sidebars: SidebarsConfig = {
         'guides/exporting',
         'guides/metadata-resolvers',
         'guides/context-middleware',
+        'guides/production-deployment',
+        'guides/performance-best-practices',
+        'guides/indexing-strategies',
+        'guides/retention-archiving',
+        'guides/cursor-pagination',
       ],
     },
 
