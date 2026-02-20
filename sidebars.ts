@@ -49,6 +49,9 @@ const sidebars: SidebarsConfig = {
         'guides/indexing-strategies',
         'guides/retention-archiving',
         'guides/cursor-pagination',
+        'guides/webhook-integrations',
+        'guides/writing-transformers',
+        'guides/writing-export-drivers',
       ],
     },
 
