@@ -239,7 +239,7 @@ When consuming Ledgerly webhooks:
 * treat delivery as at-least-once
 * make handlers idempotent
 * verify request signatures
-* respond quickly (<2s)
+* respond quickly
 * process asynchronously
 * avoid side effects in request handlers
 
