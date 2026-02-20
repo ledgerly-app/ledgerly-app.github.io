@@ -52,6 +52,8 @@ const sidebars: SidebarsConfig = {
         'guides/webhook-integrations',
         'guides/writing-transformers',
         'guides/writing-export-drivers',
+        'guides/writing-policies',
+        'guides/governance-rollout',
       ],
     },
 
